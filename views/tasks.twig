@@ -10,30 +10,25 @@
     {% endfor %}
 {% endif %}
 
+  <form action='/tasks' method ='post'>
+    <label for=''>List your task:</label>
+    <input id='task_item' name='task_item' type='text' value='Feed the ToDo list!'>
+    <button type='submit'>Submit!</button>
+  </form>
+
+  <form action='/delete_tasks' method='post'>
+    <button type='submit'>Clear Tasks</button>
+  </form>
+
 <!--
     IF ARRAY IS NOT EMPTY
              LOOP THROUGH THE ARRAY AND LIST EACH DESCRIPTION
              MAKE IT PRETTY AND USER-FRIENDLY
            END CONDITIONAL
 
-             FORM TO POST A TASK TO TASKS PAGE
+             FORM TO POST A TASK TO TASKS PAGE (AND CLEAR TASKS)
 -->
 
 
 </body>
 </html>
-
-
-
-
-<!--
-        <form action='/tasks' method='post'>
-            <label for='description'>To Do:</label>
-            <input id='description' name='description' type='text'>
-            <button type='submit'>Submit</button>
-        </form>
-
-        <form action='/delete_tasks' method='post'>
-            <button type='submit'>Clear</button>
-        </form>
--->

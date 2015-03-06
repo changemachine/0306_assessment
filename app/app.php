@@ -15,7 +15,7 @@
     $app = new Silex\Application();
 
 // APP, REGISTER TWIG AS A NEW TOOL FOR YOU (DON'T FORGET WHAT KIND OF APP IT IS)
-    $app->register(new Silex/Provider/TwigServiceProvider(), array ('twig.path' => __DIR__.'/../views'
+    $app->register(new Silex\Provider\TwigServiceProvider(), array ('twig.path' => __DIR__.'/../views'
   ));
 
 // GET(/ f u).  RETURN VIA TWIG'S RENDER('/', array, class getAll), A NEW DISPLAY ARRAY('TASKS'class-op>Task::getAll)

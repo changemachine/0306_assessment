@@ -4,10 +4,12 @@
 </head>
 <body>
     <h1>To Do List</h1>
-{% if task_list is not empty %}
-    {% for task in task_list %}
-      {{ task_list.getDescrip }}
+{% if task_display is not empty %}
+  <ul>
+    {% for task in task_display %}
+      <li>{{ task_display.getDescrip }}</li>
     {% endfor %}
+  </ul>
 {% endif %}
 
   <form action='/tasks' method ='post'>

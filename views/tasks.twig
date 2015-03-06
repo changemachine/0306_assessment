@@ -1,0 +1,39 @@
+<html>
+<head>
+    <title>To Do List</title>
+</head>
+<body>
+    <h1>To Do List</h1>
+{% if task_list is not empty %}
+    {% for task in task_list %}
+      {{ task_list.getDescrip }}
+    {% endfor %}
+{% endif %}
+
+<!--
+    IF ARRAY IS NOT EMPTY
+             LOOP THROUGH THE ARRAY AND LIST EACH DESCRIPTION
+             MAKE IT PRETTY AND USER-FRIENDLY
+           END CONDITIONAL
+
+             FORM TO POST A TASK TO TASKS PAGE
+-->
+
+
+</body>
+</html>
+
+
+
+
+<!--
+        <form action='/tasks' method='post'>
+            <label for='description'>To Do:</label>
+            <input id='description' name='description' type='text'>
+            <button type='submit'>Submit</button>
+        </form>
+
+        <form action='/delete_tasks' method='post'>
+            <button type='submit'>Clear</button>
+        </form>
+-->

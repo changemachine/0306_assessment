@@ -18,23 +18,17 @@
 
 // GET(), LOAD CLASS INTO NEW DISPLAY ARRAY, AND DISPLAY AT /contacts VIA TWIG
     $app->get("/", function() use ($app){
-        return $app['twig']->render('contacts.twig', array('contacts_display' => Contact::getAll())
+        return $app['twig']->render('contacts.twig', array('contact_list' => Contact::getAll())
         //, array(... NOT IN CARS BECAUSE..?
         );
     });
 
-// CREATE CONTACTS & POST  !!!CHECK THOSE POST VARIABLES!!!
-    $app->post("/contacts", function(){
-      $contact = new Contact($_POST['name, number, address']);
+// CREATE CONTACTS & POST  ------------------------->  !!! ARRAY
+    $app->post("/contacts", function() use ($app) {
+      $contact = new Contact($_POST['name', 'number', 'address' ]);
+//      $contact = new Contact($_POST['name, number, address']);
       $contact->save();
-
-      return "
-          <h2>Contact Saved</h2>
-          <p>
-          ". $contact->getName(). // Just name?
-          "</p>
-          <p><a href='/'>View List</a></p>
-      ";
+      return $app['twig']->render('contacts.twig', array('contact_display'=> $contact));
 
     });
 

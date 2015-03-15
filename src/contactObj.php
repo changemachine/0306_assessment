@@ -1,4 +1,4 @@
-<?php // OBJECTS (MODEL)
+<?php
 
   class Contact{
     private $name;
@@ -23,7 +23,7 @@
     }
 
     function setAddress($new_address){
-     $this->address = (string) $new_address;
+      $this->address = (string) $new_address;
    }
 
 //------ GETTERS
@@ -39,12 +39,12 @@
     }
 
 
-    // SAVE, ARRAY PUSH TO COOKIE THE CONTACT LIST
+    // SAVE. ARRAY PUSH TO COOKIE: CONTACT LIST
     function save(){
       array_push ($_SESSION['contact_list'], $this);
     }
 
-    // CLASS GET, RETURN FROM COOKIE THE CONTACT LIST
+    // CLASS GET. RETURN FROM COOKIE: CONTACT LIST
     static function getAll(){
       return $_SESSION['contact_list'];
     }
@@ -56,16 +56,7 @@
     }
     */
 
-
   }
-
-
-
-
-
-
-
-
 
 
 

@@ -22,7 +22,7 @@
         return $app['twig']->render('contacts.twig');
     });
 
-        //===== Input form data.  BEING HANDLED IN INSTANCIATION
+        //===== Input form data.  BEING HANDLED IN INSTANCIATION?
     // $app->post("/added", function() use ($app) {
     //     //$INPUT = $POST['_stuff_'];
     //     //$CONTACT =
@@ -33,7 +33,7 @@
     $new_contact = new Contact($_POST['name'], $_POST['number'], $_POST['address']);
           /* √ $new_contact == object(Contact)#67 (3) { name num & add }*/
     $new_contact->save();
-          /* √ $_SESSION == array(1) { ["contact_list"]=> name num & add */
+          var_dump($new_contact);
 
       return $app['twig']->render('contacts.twig', array('contact_display'=> $new_contact));
       //saving to session?

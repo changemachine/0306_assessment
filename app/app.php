@@ -1,11 +1,12 @@
 <?php
+    // GROUNDWORK
     require_once __DIR__."/../vendor/autoload.php";
     require_once __DIR__."/../src/contactObj.php";
 
     session_start();
-    //if (empty($_SESSION['contact_list'])){
-      $_SESSION['contact_list'] = array();
-    //};
+    if (empty($_SESSION['contact_list'])){
+        $_SESSION['contact_list'] = array();
+    };
 
     use Symfony\Component\Debug\Debug;
     Debug::enable();
@@ -17,26 +18,27 @@
 
 
 //==THE LOGIC ==================
-        //== Home page generation
+        //----Home page generation
     $app->get("/", function() use ($app){
         return $app['twig']->render('contacts.twig');
     });
 
-        //===== Input form data.  BEING HANDLED IN INSTANCIATION?
-    // $app->post("/added", function() use ($app) {
-    //     //$INPUT = $POST['_stuff_'];
-    //     //$CONTACT =
-    //
-    // });
+        //----ARRANGE, INSTANCIATE
 
-        //== INSTANCIATE OBJECT/METHODS
-    $new_contact = new Contact($_POST['name'], $_POST['number'], $_POST['address']);
-          /* √ $new_contact == object(Contact)#67 (3) { name num & add }*/
-    $new_contact->save();
-          var_dump($new_contact);
+    $app->post("/added", function() use ($app) {
+        $name = $_POST['name'];
+        $number = $_POST['number'];
+        $address = $_POST['address'];
 
-      return $app['twig']->render('contacts.twig', array('contact_display'=> $new_contact));
-      //saving to session?
+        //----OBJECT
+        $new_contact = new Contact($name, $number, $address);
+        //----METHODS
+        $new_contact->save();
+
+        return $app['twig']->render('added.twig', array('contact_list' => $_SESSION['contact_list']));
+
+    });
+
 
 /*  $app->post("/delete_contacts", function(){
           Contact::deleteContact();
@@ -46,5 +48,6 @@
     });*/
 
 //== OUTPUT
-  return $app;
+     return $app;
+
 ?>

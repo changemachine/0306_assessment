@@ -6,6 +6,30 @@
     <body>
         <h1>Congrats on your new pal! BFF 4 LYFE!</h1>
 
+        <div>
+    		  <h1>FRIENDS!</h1>
+             {% if contact_list is not empty %}
+             <p>You are not alone:</p>
+             	<ul>
+            		{% for contact in contact_list %}
+            			<li>{{ contact.getName }}</li>
+                  <ul>
+                    <li>{{ contact.getNumber }}</li>
+                    <li>{{ contact.getAddress }}</li>
+                  </ul>
+            		{% endfor %}
+            	</ul>
+
+            {% endif %}
+        </div>
+
+        <ul>
+            <li>{{ new_contact.name }}</li>
+            {#<li>{{ new_contact.number }}</li>
+            <li>{{ new_contact.address }}</li>#}
+        </ul>
+
+
         <a href="/">Home</a>
 
     </body>

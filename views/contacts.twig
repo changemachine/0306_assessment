@@ -1,36 +1,35 @@
-<!DOCTYPE html>
 <html>
 <head>
-    <title>To Do List</title>
+    <title>Friends List</title>
 </head>
 <body>
+
+    <form action='/added' method ='post'>
+    	<label for='name'>Contact:</label>
+    	<input id='name' name='name' type='text' value='Bob Denver'>
+        <label for='number'>Phone:</label>
+        <input id='number' name='number' type='number' value='5035035035'>
+        <label for='address'>Address:</label>
+        <input id='address' name='address' type='text' value='1234 SW Rocky Mt Hwy'>
+    	<button type='submit'>Submit!</button>
+    </form>
+
     <div>
-		  <h1>FRIENDS!</h1>
-         {% if contact_display is not empty %}
-         <p>Here are all your tasks:</p>
-<!--         	<ul>
-        		{% for contact in contact_display %}
-        			<li>{{ contact_display.getName }}</li>
+         {% if new_contact is not empty %}
+         <p>You have a pal!</p>
+         	<ul>
+        		{% for field in new_contact %}
+        			<li>{{ field }}</li>
               <ul>
-                <li>{{ contact_display.getNumber }}</li>
-                <li>{{ contact_display.getAddress }}</li>
+                <li>{{ field }}</li>
+                <li>{{ field }}</li>
               </ul>
         		{% endfor %}
         	</ul>
--->
-        {% endif %}
-<!-- Take form data and submit to /contacts via post>
- -->
-        	<form action='/contacts' method ='post'>
-        		<label for='name'>Contact:</label>
-        		  <input id='name' name='name' type='text' value='Bob Denver'>
-            <label for='number'>Phone:</label>
-              <input id='number' name='number' type='number' value='5035035035'>
-            <label for='address'>Address:</label>
-              <input id='address' name='address' type='text' value='1234 SW Rocky Mt Hwy'>
-        		<button type='submit'>Submit!</button>
-        	</form>
 
+        {% endif %}
+
+    </div>
 
 </body>
 </html>
